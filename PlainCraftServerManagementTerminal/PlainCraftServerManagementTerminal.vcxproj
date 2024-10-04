@@ -131,6 +131,7 @@
     <ClCompile Include="FileFind.cpp" />
     <ClCompile Include="FolderCheck.cpp" />
     <ClCompile Include="HomePage.cpp" />
+    <ClCompile Include="Initialization.cpp" />
     <ClCompile Include="MainProgram.cpp" />
     <ClCompile Include="registerServerCommand.cpp" />
     <ClCompile Include="ServerCommand.cpp" />
@@ -139,9 +140,11 @@
   <ItemGroup>
     <ClInclude Include="FileCheck.h" />
     <ClInclude Include="FileFind.h" />
+    <ClInclude Include="FilesFoldersPosition.h" />
     <ClInclude Include="FolderCheck.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="HomePage.h" />
+    <ClInclude Include="Initialization.h" />
     <ClInclude Include="registerServerCommand.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ServerCommand.h" />

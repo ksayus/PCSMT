@@ -60,6 +60,9 @@
     <ClCompile Include="HomePage.cpp">
       <Filter>源文件\Page</Filter>
     </ClCompile>
+    <ClCompile Include="Initialization.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="registerServerCommand.h">
@@ -88,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="HomePage.h">
       <Filter>头文件\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="Initialization.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesFoldersPosition.h">
+      <Filter>头文件\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

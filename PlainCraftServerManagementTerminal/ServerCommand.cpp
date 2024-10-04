@@ -1,10 +1,4 @@
 #include "ServerCommand.h"
-#include "Help.h"
-#include "fstream"
-#include "FolderCheck.h"
-#include "FileCheck.h"
-
-const char* TabKey = "\t";
 
 std::string StartString = "start";
 std::string StartBatch = "/Start.bat";
@@ -38,9 +32,9 @@ void Help(std::string args) {
 void AddServer(std::string args) {
     const char* ServerPosition = args.c_str();
 
-    CheckServerPosition();
+    CheckPCSMTFolder();
     //如果有./ServerPosition/ServerPosition.txt文件就打开，没有则创建
-    std::fstream ServerAddress("./ServerPosition/ServerPosition.txt",std::ios::out|std::ios::app);
+    std::fstream ServerAddress("./PCSMT/ServerPosition.txt",std::ios::out|std::ios::app);
 
     //检查文件是否打开
     if (!ServerAddress.is_open())

@@ -3,12 +3,14 @@
 
 #include "ServerCommandRegister.h"
 #include "HomePage.h"
+#include "Initialization.h"
 
 using namespace std;
 
 int main() {
 	setServerCommand();
     HomePage();
+    InitializationServerPosition();
 
     //∂®“Â ‰»Î
     std::string input;

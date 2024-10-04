@@ -5,7 +5,7 @@
 #include <io.h>
 #include <iostream>
 
-void CheckServerPosition();
+void CheckPCSMTFolder();
 
 #endif // !CHECKTOOLS
 
