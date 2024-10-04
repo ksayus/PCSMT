@@ -2,11 +2,12 @@
 #include "Help.h"
 #include "fstream"
 #include "FolderCheck.h"
+#include "FileCheck.h"
 
 const char* TabKey = "\t";
 
 std::string StartString = "start";
-std::string StartBatch = "/start.bat";
+std::string StartBatch = "/Start.bat";
 
 void Start(std::string args) {
     //std::cout << "Start " << args << " units" << std::endl;
@@ -51,6 +52,9 @@ void AddServer(std::string args) {
         //std::cout << ServerPosition << StartBatch << std::endl;
         ServerAddress << ServerPosition << StartBatch << std::endl;
         ServerAddress.close();
-        std::cout << "存储完成！" << std::endl;
+        //检查Start.bat文件的存在并写入Start.bat中
+        CheckStartBatch(args);
+        //输出信息
+        std::cout << "服务器路径存储完成！" << std::endl;
     }
 }

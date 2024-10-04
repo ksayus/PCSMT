@@ -1,2 +1,18 @@
-./source/start.bat
 
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat
+./source/Start.bat

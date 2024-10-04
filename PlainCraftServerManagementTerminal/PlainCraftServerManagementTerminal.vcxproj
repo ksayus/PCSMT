@@ -127,15 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileCheck.cpp" />
+    <ClCompile Include="FileFind.cpp" />
     <ClCompile Include="FolderCheck.cpp" />
+    <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="MainProgram.cpp" />
     <ClCompile Include="registerServerCommand.cpp" />
     <ClCompile Include="ServerCommand.cpp" />
     <ClCompile Include="ServerCommandRegister.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileCheck.h" />
+    <ClInclude Include="FileFind.h" />
     <ClInclude Include="FolderCheck.h" />
     <ClInclude Include="Help.h" />
+    <ClInclude Include="HomePage.h" />
     <ClInclude Include="registerServerCommand.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ServerCommand.h" />

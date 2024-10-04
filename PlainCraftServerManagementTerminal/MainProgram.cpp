@@ -2,11 +2,13 @@
 #include <Windows.h>
 
 #include "ServerCommandRegister.h"
+#include "HomePage.h"
 
 using namespace std;
 
 int main() {
 	setServerCommand();
+    HomePage();
 
     //∂®“Â ‰»Î
     std::string input;

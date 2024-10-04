@@ -22,11 +22,17 @@
     <Filter Include="头文件\Help">
       <UniqueIdentifier>{36de9d19-9c38-435e-b6cf-d5a19d800480}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\CheckTools">
+    <Filter Include="头文件\Tools">
       <UniqueIdentifier>{9e2337e6-5cfc-49d0-9cf4-6bf36da65184}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\CheckTools">
+    <Filter Include="源文件\Tools">
       <UniqueIdentifier>{0b18ce80-d267-490e-a522-2751e62f867f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Page">
+      <UniqueIdentifier>{5a7c67fb-0974-40a7-a808-a78c12f870ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Page">
+      <UniqueIdentifier>{8c0c2db3-519e-4b1b-87e7-ec03db79ea42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,7 +49,16 @@
       <Filter>源文件\ServerCommand</Filter>
     </ClCompile>
     <ClCompile Include="FolderCheck.cpp">
-      <Filter>源文件\CheckTools</Filter>
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCheck.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="FileFind.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="HomePage.cpp">
+      <Filter>源文件\Page</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +75,19 @@
       <Filter>头文件\Help</Filter>
     </ClInclude>
     <ClInclude Include="FolderCheck.h">
-      <Filter>头文件\CheckTools</Filter>
+      <Filter>头文件\Tools</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCheck.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="FileFind.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="HomePage.h">
+      <Filter>头文件\Page</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
