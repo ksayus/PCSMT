@@ -15,6 +15,7 @@ extern std::string StartServerBatch;
 
 //Folders
 extern std::string PCSMTPositionFolder;
+extern std::string PCSMTLogPositionFolder;
 extern std::string sourcePositionFolder;
 
 //Others
@@ -23,6 +24,9 @@ extern const char* TabKey;
 extern std::string CD;
 extern std::string StartString;
 extern std::string RightSlash;
+extern std::string HorizontalLine;
+extern std::string Txt;
+extern std::string Colon;
 
 //Server
 extern std::string ServerPosition[];

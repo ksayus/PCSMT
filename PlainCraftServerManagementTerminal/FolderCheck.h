@@ -6,6 +6,7 @@
 #include <iostream>
 
 void CheckPCSMTFolder();
+void CheckTimeFolder();
 
 #endif // !CHECKTOOLS
 

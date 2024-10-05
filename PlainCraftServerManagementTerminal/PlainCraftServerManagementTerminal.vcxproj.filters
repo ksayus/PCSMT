@@ -66,6 +66,12 @@
     <ClCompile Include="FilesFoldersPosition.cpp">
       <Filter>源文件\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="getTime.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputLog.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="registerServerCommand.h">
@@ -99,6 +105,12 @@
       <Filter>头文件\Tools</Filter>
     </ClInclude>
     <ClInclude Include="FilesFoldersPosition.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="getTime.h">
+      <Filter>头文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputLog.h">
       <Filter>头文件\Tools</Filter>
     </ClInclude>
   </ItemGroup>
