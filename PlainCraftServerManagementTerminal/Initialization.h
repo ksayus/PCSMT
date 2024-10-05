@@ -4,9 +4,9 @@
 #include <fstream>
 #include <iostream>
 
-#include "FilesFoldersPosition.h"
-
 int InitializationServerPosition();
+int InitializationServerName();
+int InitializationServerFolder();
 
 #endif // !INITIALIZATION
 

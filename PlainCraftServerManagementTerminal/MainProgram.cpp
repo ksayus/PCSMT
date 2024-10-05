@@ -3,14 +3,19 @@
 
 #include "ServerCommandRegister.h"
 #include "HomePage.h"
+#include "FolderCheck.h"
 #include "Initialization.h"
+#include "registerServerCommand.h"
 
 using namespace std;
 
 int main() {
 	setServerCommand();
     HomePage();
+    CheckPCSMTFolder();
     InitializationServerPosition();
+    InitializationServerName();
+    InitializationServerFolder();
 
     //∂®“Â ‰»Î
     std::string input;

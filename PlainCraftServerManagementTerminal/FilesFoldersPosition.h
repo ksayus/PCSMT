@@ -3,20 +3,35 @@
 
 #include <string>
 
-const int MaxServerPositonTotals = 512;
+extern const int MaxServerTotals;
+extern const int ServerAbsolutePathLong;
 
 //Files
-const std::string ServerPositionTxt = "/ServerPosition.txt";
+extern std::string ServerPositionTxt;
+extern std::string ServerNameTxt;
+extern std::string ServerFolderTxt;
+extern std::string StartBatch;
+extern std::string StartServerBatch;
 
 //Folders
-const std::string PCSMTPositionFolder = "/PCSMT";
+extern std::string PCSMTPositionFolder;
+extern std::string sourcePositionFolder;
 
 //Others
-const std::string ADot = ".";
-static const char* TabKey = "\t";
+extern std::string ADot;
+extern const char* TabKey;
+extern std::string CD;
+extern std::string StartString;
+extern std::string RightSlash;
 
-//ServerPosition
-static std::string ServerPosition[MaxServerPositonTotals];
+//Server
+extern std::string ServerPosition[];
+extern std::string ServerName[];
+extern std::string ServerFolder[];
+
+extern int ServerNameNumber;
+extern int ServerPositionNumber;
+extern int ServerFolderNumber;
+
 
 #endif // !FILESFOLDERSPOSITION
-

@@ -63,6 +63,9 @@
     <ClCompile Include="Initialization.cpp">
       <Filter>源文件\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="FilesFoldersPosition.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="registerServerCommand.h">

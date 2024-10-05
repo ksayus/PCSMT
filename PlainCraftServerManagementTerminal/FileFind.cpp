@@ -15,32 +15,32 @@ std::string FindFilesWithExtension(const std::string& ServerCorePath, const std:
     std::cout << searchpattern << std::endl;
 
     //将string转换到wstring
-    std::wstring midsearchpattern(searchpattern.begin(), searchpattern.end());
-    std::wcout << midsearchpattern << std::endl;
+    /*std::wstring midsearchpattern(searchpattern.begin(), searchpattern.end());
+    std::wcout << midsearchpattern << std::endl;*/
 
     //将wstring转换到LPCWSTR
-    LPCWSTR SearchPattern = midsearchpattern.c_str();
+    LPCSTR SearchPattern = searchpattern.c_str();
     std::wcout << SearchPattern << std::endl;
 
     // 
-    std::cout << "test" << std::endl;
+    //std::cout << "test" << std::endl;
     FindFile = FindFirstFile(SearchPattern, &findFileData);
-    std::cout << "test1" << std::endl;
+    //std::cout << "test1" << std::endl;
     if (FindFile != INVALID_HANDLE_VALUE) {
         do {
             // 找到文件，打印文件名
 
-            std::cout << "test2" << std::endl;
+            //std::cout << "test2" << std::endl;
             std::wcout << findFileData.cFileName << std::endl;
 
-            std::wstring midreturnfilename = findFileData.cFileName;
+            //std::wstring midreturnfilename = findFileData.cFileName;
             //std::wcout << midreturnfilename << std::endl;
 
-            std::string midReturnFileName(midreturnfilename.begin(), midreturnfilename.end());
+            //std::string midReturnFileName() = findFileData.cFileName();
             //std::cout << midReturnFileName << std::endl;
 
             //ReturnFileName = streammidreturnfilename.c_str();
-            ReturnFileName = midReturnFileName.c_str();
+            ReturnFileName = findFileData.cFileName;
         } while (FindNextFile(FindFile, &findFileData) != 0);
         FindClose(FindFile);
     }

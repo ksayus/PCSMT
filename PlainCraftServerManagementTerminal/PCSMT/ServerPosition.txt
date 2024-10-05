@@ -1,1 +1,1 @@
-./source/Start.bat
+C:\Users\24813\source\repos\PlainCraftServerManagementTerminal\PlainCraftServerManagementTerminal/source/Start.bat

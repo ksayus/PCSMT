@@ -1,6 +1,8 @@
 #include "FileCheck.h"
 #include "FileFind.h"
 
+#include "FilesFoldersPosition.h"
+
 std::string XmsRam = "4096M";
 std::string XmxRam = "4096M";
 

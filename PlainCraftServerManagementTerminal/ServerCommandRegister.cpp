@@ -1,5 +1,8 @@
 #include "ServerCommandRegister.h"
 
+#include "ServerCommand.h"
+#include "registerServerCommand.h"
+
 void setServerCommand()
 {
 	//×¢²áÖ¸Áî
@@ -7,4 +10,6 @@ void setServerCommand()
 	registerServerCommand("start", Start);
 	registerServerCommand("help", Help);
 	registerServerCommand("addserver", AddServer);
+	registerServerCommand("startserver", ToStartServer);
+	registerServerCommand("serverlist", ServerList);
 }
