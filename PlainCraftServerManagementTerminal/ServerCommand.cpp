@@ -12,6 +12,12 @@
 
 
 void Start(std::string args) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     //std::cout << "Start " << args << " units" << std::endl;
     //将输入转换为const char*类型的常量
     std::string ServerPathString = StartString + args;
@@ -19,10 +25,17 @@ void Start(std::string args) {
     //使用system函数进行打开文件
     system(ServerPathChar);
     //输出信息
-    std::cout << "打开文件:" << args << std::endl;
+    Output("打开文件:");
+    LogFile.close();
 }
 
 void Help(std::string args) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     int HelpLoop = HelpQuantity;
     int HelpPosition = 0;
 
@@ -32,12 +45,18 @@ void Help(std::string args) {
             continue; // 如果当前元素是空格字符串，则跳过
         }
         //输出信息
-        std::cout << HelpCommandName[HelpPosition] << TabKey << HelpCommandRole[HelpPosition] << TabKey << HelpCommandUsage[HelpPosition] << std::endl;
+        Output(HelpCommandName[HelpPosition] + TabKey + HelpCommandRole[HelpPosition] + TabKey + HelpCommandUsage[HelpPosition]);
     }
-
+    LogFile.close();
 }
 
 void AddServer(std::string args) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     const char* ServerPath = args.c_str();
     //std::wstring StartBarchWstring(StartBatch.begin(), StartBatch.end());
     //std::wstring midServerPath(args.begin(), args.end());
@@ -62,7 +81,7 @@ void AddServer(std::string args) {
         }
     }
 
-    std::cout << "服务器名：" + getServerName << std::endl;
+    Output("服务器名：" + getServerName);
 
     CheckPCSMTFolder();
     //如果有./PCSMT/ServerPosition.txt文件就打开，没有则创建
@@ -72,19 +91,20 @@ void AddServer(std::string args) {
     //检查文件是否打开
     if (!ServerAddress.is_open())
     {
-        std::cout << "服务器路径存储错误！打开文件时发生错误" << std::endl;
+        Output("服务器路径存储错误！打开文件时发生错误");
         ServerAddress.close();
     }
     else {
         //std::cout << args << StartBatch << std::endl;
         //std::cout << ServerPath << StartBatch << std::endl;
-        std::cout << "服务器路径：" << ServerAbsolutePath + RightSlash + getServerName; std::cout << StartBatch << std::endl;
+        Output("服务器路径：");
+        Output(ServerAbsolutePath + RightSlash + getServerName + StartBatch);
         ServerAddress << ServerAbsolutePath << RightSlash + getServerName << StartBatch << std::endl;
         ServerAddress.close();
         //检查Start.bat文件的存在并写入Start.bat中
         CheckStartBatch(ServerAbsolutePath + RightSlash + getServerName);
         //输出信息
-        std::cout << "服务器路径存储完成！" << std::endl;
+        Output("服务器路径存储完成！");
     }
 
     //存储ServerName
@@ -92,7 +112,7 @@ void AddServer(std::string args) {
 
     if (!ServerAddress.is_open())
     {
-        std::cout << "服务器名存储错误！打开文件时发生错误" << std::endl;
+        Output("服务器名存储错误！打开文件时发生错误");
         ServerAddress.close();
     }
     else {
@@ -100,34 +120,42 @@ void AddServer(std::string args) {
         ServerAddress << getServerName << std::endl;
         ServerAddress.close();
 
-        std::cout << "服务器名存储完成！" << std::endl;
+        Output("服务器名存储完成！");
     }
 
     ServerAddress.open(ADot + PCSMTPositionFolder + ServerFolderTxt, std::ios::out | std::ios::app);
 
     if (!ServerAddress.is_open())
     {
-        std::cout << "服务器所在文件夹存储错误！打开文件时发生错误" << std::endl;
+        Output("服务器所在文件夹存储错误！打开文件时发生错误");
         ServerAddress.close();
     }
     else {
-        std::cout << "服务器所在文件夹：" << ServerAbsolutePath << RightSlash + getServerName << std::endl;
+        Output("服务器所在文件夹：");
+        Output(ServerAbsolutePath + RightSlash + getServerName);
         ServerAddress << ServerAbsolutePath << RightSlash + getServerName << std::endl;
         ServerAddress.close();
 
-        std::cout << "服务器所在文件夹存储完成！" << std::endl;
+        Output("服务器所在文件夹存储完成！");
     }
 
     InitializationServerPosition();
     InitializationServerName();
     InitializationServerFolder();
+
+    LogFile.close();
 }
 
 void ToStartServer(std::string args) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
 
     //将输入的转换为整形
     int ServerNamePositionTotals = std::atoi(args.c_str());
-    std::cout << "启动服务器：" + ServerName[ServerNamePositionTotals] << std::endl;
+    Output("启动服务器：" + ServerName[ServerNamePositionTotals]);
 
     //将std::string ServerPosition转换到const char* ServerNamePosition
     std::string cdServerPosition = CD + ServerFolder[ServerNamePositionTotals];
@@ -138,23 +166,31 @@ void ToStartServer(std::string args) {
     int excuteResult = system(startServer.c_str());
     while (excuteResult != 0)
     {
-        std::cout << "执行启动脚本失败！" << std::endl;
+        Output("执行启动脚本失败！");
         return;
     }
-    std::cout << "执行启动脚本成功！" << std::endl;
-    std::cout << "当前启动服务器：" + ServerName[ServerNamePositionTotals] << std::endl;
+    Output("执行启动脚本成功！");
+    Output("当前启动服务器：" + ServerName[ServerNamePositionTotals]);
+    LogFile.close();
 }
 
 void ServerList(std::string args) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     //获取列表服务器名数量
     ServerNameNumber = InitializationServerName();
 
-    std::cout << "服务器列表：" << std::endl;
+    Output("服务器列表：");
     
     //输出服务器列表
-    std::cout << ServerNameNumber << std::endl;
+    //std::cout << ServerNameNumber << std::endl;
     for (int OutputServerName = 0; OutputServerName < ServerNameNumber; OutputServerName++)
     {
-        std::cout << OutputServerName << ADot << ServerName[OutputServerName].c_str() << std::endl;
+        Output(std::to_string(OutputServerName) + ADot + ServerName[OutputServerName].c_str());
     }
+    LogFile.close();
 }

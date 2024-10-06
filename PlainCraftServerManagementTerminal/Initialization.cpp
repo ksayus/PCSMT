@@ -4,6 +4,12 @@
 
 int InitializationServerPosition()
 {
+	std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+	auto Output = [&](const std::string& text) {
+		std::cout << text << std::endl;
+		LogFile << text << std::endl;
+		};
+
 	const int MaxServerTotals = 512;
 	int ReadServerPostionContent = 0;
 
@@ -14,25 +20,32 @@ int InitializationServerPosition()
 
 	if (ReadServerPosition.is_open() == false)
 	{
-		std::cout << "文件打开失败！" << std::endl;
+		Output("文件打开失败！");
 		return 0;
 	}
 
-	std::cout << "读取文件" + ServerPositionTxt + "中！" << std::endl;
+	Output("读取文件" + ServerPositionTxt + "中！");
 
 
 	while (std::getline(ReadServerPosition, ServerPositionReaded[ReadServerPostionContent]))
 	{
-		std::cout << "读取服务器地址:" + ServerPositionReaded[ReadServerPostionContent] << std::endl;
+		Output("读取服务器地址:" + ServerPositionReaded[ReadServerPostionContent]);
 		ServerPosition[ReadServerPostionContent] = ServerPositionReaded[ReadServerPostionContent];
 		//return ServerPositionReaded[ReadServerPostionContent];
 		ReadServerPostionContent++;
 	}
+	LogFile.close();
 	return ReadServerPostionContent;
 }
 
 int InitializationServerName()
 {
+	std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+	auto Output = [&](const std::string& text) {
+		std::cout << text << std::endl;
+		LogFile << text << std::endl;
+		};
+
 	const int MaxServerTotals = 512;
 	int ReadServerNameContent = 0;
 
@@ -43,24 +56,31 @@ int InitializationServerName()
 
 	if (ReadServerName.is_open() == false)
 	{
-		std::cout << "文件打开失败！" << std::endl;
+		Output("文件打开失败！");
 		return 0;
 	}
 
-	std::cout << "读取文件" + ServerNameTxt + "中！" << std::endl;
+	Output("读取文件" + ServerNameTxt + "中！");
 
 	while (std::getline(ReadServerName, ServerNameReaded[ReadServerNameContent]))
 	{
-		std::cout << "读取服务器名：" + ServerNameReaded[ReadServerNameContent] << std::endl;
+		Output("读取服务器名：" + ServerNameReaded[ReadServerNameContent]);
 		ServerName[ReadServerNameContent] = ServerNameReaded[ReadServerNameContent];
-		std::cout << ReadServerNameContent << std::endl;
+		//std::cout << ReadServerNameContent << std::endl;
 		ReadServerNameContent++;
 	}
+	LogFile.close();
 	return ReadServerNameContent;
 }
 
 int InitializationServerFolder() 
 {
+	std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+	auto Output = [&](const std::string& text) {
+		std::cout << text << std::endl;
+		LogFile << text << std::endl;
+		};
+
 	const int MaxServerTotals = 512;
 	int ReadServerFolderContent = 0;
 
@@ -71,18 +91,19 @@ int InitializationServerFolder()
 
 	if (ReadServerFolder.is_open() == false)
 	{
-		std::cout << "文件打开失败！" << std::endl;
+		Output("文件打开失败！");
 		return 0;
 	}
 
-	std::cout << "读取文件" + ServerFolderTxt + "中！" << std::endl;
+	Output("读取文件" + ServerFolderTxt + "中！");
 
 	while (std::getline(ReadServerFolder, ServerFolderReaded[ReadServerFolderContent]))
 	{
-		std::cout << "读取服务器所在文件夹：" + ServerFolderReaded[ReadServerFolderContent] << std::endl;
+		Output("读取服务器所在文件夹：" + ServerFolderReaded[ReadServerFolderContent]);
 		ServerFolder[ReadServerFolderContent] = ServerFolderReaded[ReadServerFolderContent];
-		std::cout << ReadServerFolderContent << std::endl;
+		//std::cout << ReadServerFolderContent << std::endl;
 		ReadServerFolderContent++;
 	}
+	LogFile.close();
 	return ReadServerFolderContent;
 }
