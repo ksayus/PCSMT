@@ -10,12 +10,6 @@ std::string ServerCoreFileName;
 
 void CheckStartBatch(std::string StartBatchpath)
 {
-	std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
-	auto Output = [&](const std::string& text) {
-		std::cout << text << std::endl;
-		LogFile << text << std::endl;
-		};
-
 	ServerCoreFileName = FindFilesWithExtension(StartBatchpath, ".jar");
 	std::string StartBatchPath = StartBatchpath + "/Start.bat";
 
@@ -31,32 +25,31 @@ void CheckStartBatch(std::string StartBatchpath)
 		// 检查文件是否成功打开
 		if (!StartBatch.is_open())
 		{
-			Output("未发现Start.bat文件！");
-			Output("创建Start.bat文件！");
+			std::cout << "未发现Start.bat文件！" << std::endl;
+			std::cout << "创建Start.bat文件！" << std::endl;
 			StartBatch.open(StartBatchPath, std::fstream::out | std::fstream::trunc);
 
 			//检查文件是否创建
 			if (StartBatch.is_open()) {
-				Output("创建并打开了Start.bat文件。");
+				std::cout << "创建并打开了Start.bat文件。" << std::endl;
 
 				//创建并配置Start.bat文件
 				StartBatch << "cd " + StartBatchpath << std::endl;
 				StartBatch << "java -jar -Xms" + XmsRam + " -Xmx" + XmxRam + " -jar " + ServerCoreFileName << std::endl;
-				Output("配置成功！");
+				std::cout << "配置成功！" << std::endl;
 				StartBatch.close(); // 操作完成后关闭文件
 			}
 			else {
-				Output("尝试创建文件失败！");
+				std::cout << "尝试创建文件失败！" << std::endl;
 			}
 		}
 		else {
 			//绑定并配置Start.bat文件
-			Output("已绑定Start.bat文件！");
+			std::cout << "已绑定Start.bat文件！" << std::endl;
 			StartBatch << "cd " + StartBatchpath << std::endl;
 			StartBatch << "java -jar -Xms" + XmsRam + " -Xmx" + XmxRam + " -jar " + ServerCoreFileName << std::endl;
-			Output("配置成功！");
+			std::cout << "配置成功！" << std::endl;
 			StartBatch.close(); // 操作完成后关闭文件
 		}
 	}
-	LogFile.close();
 }

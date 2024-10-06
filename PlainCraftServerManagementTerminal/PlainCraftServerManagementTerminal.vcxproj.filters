@@ -34,12 +34,6 @@
     <Filter Include="源文件\Page">
       <UniqueIdentifier>{8c0c2db3-519e-4b1b-87e7-ec03db79ea42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\LambdaExpression">
-      <UniqueIdentifier>{6f184d78-1e01-40e7-8955-22dae36384ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\LambdaExpression">
-      <UniqueIdentifier>{abd1dc64-0721-47fb-81d4-d1d99a78a3fd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainProgram.cpp">
@@ -73,6 +67,9 @@
       <Filter>源文件\Tools</Filter>
     </ClCompile>
     <ClCompile Include="getTime.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputLog.cpp">
       <Filter>源文件\Tools</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,7 +111,7 @@
       <Filter>头文件\Tools</Filter>
     </ClInclude>
     <ClInclude Include="OutputLog.h">
-      <Filter>头文件\LambdaExpression</Filter>
+      <Filter>头文件\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

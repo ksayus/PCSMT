@@ -6,7 +6,6 @@
 #include<stdio.h>
 
 tm* GetTime();
-int YMD();
 
 #endif // !GETTIME
 
