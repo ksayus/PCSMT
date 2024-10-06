@@ -3,10 +3,17 @@
 
 #include <windows.h>
 #include <iostream>
+#include "FilesFoldersPosition.h"
 
 std::string ReturnFileName;
 
 std::string FindFilesWithExtension(const std::string& ServerCorePath, const std::string& Extension) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     WIN32_FIND_DATA findFileData;
     HANDLE FindFile;
 
@@ -45,9 +52,10 @@ std::string FindFilesWithExtension(const std::string& ServerCorePath, const std:
         FindClose(FindFile);
     }
     else {
-        std::cout << "查找文件失败！" << std::endl;
-        std::cout << "未找到.jar文件！" << std::endl;
+        Output("查找文件失败！");
+        Output("未找到" + Extension + "文件！");
     }
+    LogFile.close();
     return ReturnFileName;
 }
 //    使用方法

@@ -1,5 +1,7 @@
 #include "registerServerCommand.h"
 
+#include "FilesFoldersPosition.h"
+
 // 创建一个映射，用于存储指令和对应的函数
 std::map<std::string, StartServer> StartServerCommand;
 
@@ -9,6 +11,12 @@ void registerServerCommand(const std::string& CommandName, StartServer servercmd
 }
 // 执行指令
 void excuteServerCommand(const std::string& scLine) {
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
     std::istringstream server(scLine);
     std::string servercommand;
     server >> servercommand;
@@ -19,7 +27,8 @@ void excuteServerCommand(const std::string& scLine) {
     }
     else {
         //输出错误信息
-        std::cout << "Unkown command: " << servercommand << std::endl;
-        std::cout << "使用“help”以查询指令" << std::endl;
+        Output("Unkown command: " + servercommand);
+        Output("使用“help”以查询指令");
     }
+    LogFile.close();
 }
