@@ -12,4 +12,6 @@ void setServerCommand()
 	registerServerCommand("addserver", AddServer);
 	registerServerCommand("startserver", ToStartServer);
 	registerServerCommand("serverlist", ServerList);
+	registerServerCommand("serversetting", ServerSetting);
+	registerServerCommand("about", About);
 }

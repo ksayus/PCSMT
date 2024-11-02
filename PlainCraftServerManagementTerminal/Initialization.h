@@ -4,9 +4,7 @@
 #include <fstream>
 #include <iostream>
 
-int InitializationServerPosition();
-int InitializationServerName();
-int InitializationServerFolder();
+int InitializationFiles(std::string FilesName);
 
 #endif // !INITIALIZATION
 

@@ -28,6 +28,7 @@ std::string ServerNameTxt = "/ServerName.txt";
 std::string ServerFolderTxt = "/ServerFolder.txt";
 std::string StartBatch = "/Start.bat";
 std::string StartServerBatch = "Start.bat";
+std::string ServerProperties = "/server.properties";
 std::string LogName = std::to_string(gettime->tm_hour) + HorizontalLine + std::to_string(gettime->tm_min) + HorizontalLine + std::to_string(gettime->tm_sec) + Log;
 
 //Folders

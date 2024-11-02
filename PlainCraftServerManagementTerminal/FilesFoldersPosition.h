@@ -27,6 +27,7 @@ extern std::string ServerNameTxt;
 extern std::string ServerFolderTxt;
 extern std::string StartBatch;
 extern std::string StartServerBatch;
+extern std::string ServerProperties;
 extern std::string LogName;
 
 //Folders
@@ -57,8 +58,5 @@ extern std::string LogOutputPath;
 //Times
 extern std::string CompleteTime;
 extern std::string OnlyTime;
-
-
-
 
 #endif // !FILESFOLDERSPOSITION

@@ -7,6 +7,7 @@
 #include "FileCheck.h"
 #include "Initialization.h"
 #include "FilesFoldersPosition.h"
+#include "HomePage.h"
 
 //#include "FilesFoldersPosition.cpp"
 
@@ -65,7 +66,6 @@ void AddServer(std::string args) {
     const int ServerAbsolutePathLong = 512;
     char ServerAbsolutePath[ServerAbsolutePathLong]{};
 
-    //获取当前程序的绝对路径
     GetCurrentDirectory(ServerAbsolutePathLong, ServerAbsolutePath);
 
     //LPCWSTR ServerAbsolutePositionFolder = ServerPositionFolder.c_str();
@@ -139,9 +139,9 @@ void AddServer(std::string args) {
         Output("服务器所在文件夹存储完成！");
     }
 
-    InitializationServerPosition();
-    InitializationServerName();
-    InitializationServerFolder();
+    InitializationFiles(ServerPositionTxt);
+    InitializationFiles(ServerNameTxt);
+    InitializationFiles(ServerFolderTxt);
 
     LogFile.close();
 }
@@ -182,7 +182,7 @@ void ServerList(std::string args) {
         };
 
     //获取列表服务器名数量
-    ServerNameNumber = InitializationServerName();
+    ServerNameNumber = InitializationFiles(ServerNameTxt);
 
     Output("服务器列表：");
     
@@ -193,4 +193,35 @@ void ServerList(std::string args) {
         Output(std::to_string(OutputServerName) + ADot + ServerName[OutputServerName].c_str());
     }
     LogFile.close();
+}
+
+void ServerSetting(std::string args)
+{
+    std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
+    auto Output = [&](const std::string& text) {
+        std::cout << text << std::endl;
+        LogFile << text << std::endl;
+        };
+
+    int ServerSettingPosition = std::atoi(args.c_str());
+    Output("打开服务器配置文件server.properties：" + ServerName[ServerSettingPosition]);
+
+    std::string cdServerPosition = CD + ServerFolder[ServerSettingPosition];
+    std::string openServerSettingFile = StartString + ServerFolder[ServerSettingPosition] + ServerProperties;
+
+    system(cdServerPosition.c_str());
+    int excuteResult = system(openServerSettingFile.c_str());
+    while (excuteResult != 0)
+    {
+        Output("打开服务器配置文件！");
+        return;
+    }
+    Output("打开服务器配置文件成功！");
+
+    LogFile.close();
+}
+
+void About(std::string args)
+{
+    HomePage();
 }

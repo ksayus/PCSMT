@@ -20,12 +20,12 @@ int main() {
     //设置指令
 	setServerCommand();
 
+    //输出页面
+    HomePage();
+
     //检查文件夹
     CheckPCSMTFolder();
     CheckTimeFolder();
-
-    //输出页面
-    HomePage();
 
     std::ofstream LogFile(LogOutputPath, std::ios::out | std::ios::app);
     auto Output = [&](const std::string& text) {
@@ -45,9 +45,9 @@ int main() {
     LogFile.close();
 
     //初始化
-    InitializationServerPosition();
-    InitializationServerName();
-    InitializationServerFolder();
+    InitializationFiles(ServerPositionTxt);
+    InitializationFiles(ServerNameTxt);
+    InitializationFiles(ServerFolderTxt);
 
 
 
