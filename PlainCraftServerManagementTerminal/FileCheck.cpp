@@ -41,7 +41,7 @@ void CheckStartBatch(std::string StartBatchpath)
 
 				//创建并配置Start.bat文件
 				StartBatch << "cd " + StartBatchpath << std::endl;
-				StartBatch << "java -jar -Xms" + XmsRam + " -Xmx" + XmxRam + " -jar " + ServerCoreFileName << std::endl;
+				StartBatch << "java -jar -Xms" + XmsRam + " -Xmx" + XmxRam + " -jar " + ServerCoreFileName + " nogui" << std::endl;
 				Output("配置成功！");
 				StartBatch.close(); // 操作完成后关闭文件
 			}
